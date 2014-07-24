@@ -26,3 +26,8 @@ class Dataset(object):
                 yield DatasetInstance(*row.split())
     
         
+    def all_lemmas(self):
+        lemmas = set()
+        for instance in self:
+            lemmas |= set(instance.s1 + instance.s2)
+        return lemmas
