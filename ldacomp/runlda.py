@@ -4,6 +4,8 @@
 
 import logging, gensim, bz2
 
+import settings
+
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 def compute_lda_model(wordids_txt, tfidf_mm, output_name):
@@ -20,8 +22,6 @@ def compute_lda_model(wordids_txt, tfidf_mm, output_name):
 
 
 if __name__ == "__main__":
-    prefix = 'data/wikismall_corpus'
-    wordids_txt = prefix + '_wordids.txt.bz2'
-    tfidf_mm = prefix + '_tfidf.mm.bz2'
-    output_name = prefix + '_lda'
-    compute_lda_model(wordids_txt, tfidf_mm, output_name)
+    compute_lda_model(settings.wordids_txt,
+                      settings.tfidf_mm,
+                      settings.lda_model_name)
