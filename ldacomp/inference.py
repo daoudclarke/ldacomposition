@@ -17,6 +17,6 @@ class InferenceModel(object):
     def prob(self, words):
         bow = self.dictionary.doc2bow(words)
         if len(bow) != len(words):
-            print "One or more words missing from from dictionary"
+            print "One or more words missing from dictionary"
         return self.model.inference([bow])
 
